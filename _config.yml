@@ -29,11 +29,11 @@ sass:
 #google-analytics: UA-XXXXX-Y
 
 # Social Links
-#email:             email
+email:             psyrizt@outlook.com
 #google.plus:        username
-#twitter:            username
+twitter:            psyrizt
 #facebook:           username
-#github:             username
+github:             psyrizt
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
 #linkedin:          username
 #xing:              username
@@ -42,7 +42,7 @@ sass:
 #tumblr:            username
 #pinterest:         username
 #foursquare:        username
-#steam:              username
+steam:              psyrizt
 #dribbble:          username
 #youtube:           username
 #soundcloud:        username
