@@ -1,5 +1,5 @@
 $(function () {
-  var canvas = document.querySelector("canvas"), ctx = canvas.getContext("2d"), color = "#9a1919";
+  var canvas = document.querySelector("canvas"), ctx = canvas.getContext("2d"), color = "#fce8e8";
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   canvas.style.display = "block";
