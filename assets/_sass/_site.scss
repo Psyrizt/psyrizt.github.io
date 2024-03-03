@@ -495,7 +495,7 @@ canvas {
       color: darken($white, 40);
     }
     .date {
-      color: #399f62;
+      color: #a5333c;
       float: right;
       display: inline-block;
       font-size: 15px;
@@ -564,7 +564,7 @@ canvas {
     display: block;
   }
   a:not(.btn):not(.pagination_pager) {
-    color: #399f62;
+    color: #9f3947;
     border-bottom: 1px dotted $green;
   }
   ul,
@@ -626,7 +626,7 @@ canvas {
     a {
       color: $green;
       &:hover {
-        color: #4dbe7a;
+        color: #000000;
       }
     }
     em {
