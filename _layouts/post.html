@@ -1,47 +1,38 @@
 ---
-layout: compress
+layout: default
 ---
-
-<!DOCTYPE html>
-<html>
-{% include head.html %}
-<body id="posts" class="inner-post-page">
-
-    <div class="block-left">
-      <div class="content">
-        <a href="{{ site.url }}" class="logo"><img src="{{ site.url }}/images/{{ site.logo }}"></a>
-        <div class="post-title-section">
-          <div class="section-line">Posts <em>/</em></div>
-          <h1 class="section-title">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
-          <ul class="tags">
-            {% for tag in page.tags %}
-              <li><a href="{{ site.url }}/tags#{{ tag }}">{{ tag }}</a></li>
-              {% unless forloop.last %}
-              {% endunless %}
-            {% endfor %}
-          </ul>
-          <div class="section-line reverse"><a href="{{ site.url}}/posts">Back to posts</a> <em>/</em></div>
-        </div>
+<article class="post">
+  {%- if page.image -%}
+    <div class="featuredImage">
+        <img src="{{ '/assets/img/' | append: page.image | relative_url }}" alt="" />
       </div>
-    </div>
+  {%- endif -%}
+  <header>
+    <h1 class="postTitle">{{ page.title }}</h1>
+    <p class="meta">{{ page.date | date: '%B %d, %Y' }} | <span class="time">{{ page.content | number_of_words | divided_by:180 }}</span> Minute Read</p>
+  </header>
 
-    <div class="block-right">
-      <div class="share-buttons">
-        {% include share.html %}
-      </div>
-      <a href="../posts.html" title="posts" class="posts-menu-icon"></a>
-      <a title="projects" class="projects-menu-icon">
-        <span></span>
+  {{ content }}
+
+  <!-- POST NAVIGATION -->
+  <footer class="postNav clearfix">
+    {%- if page.previous.url -%}
+      <a class="prev{% if page.previous.image %} image{% endif %}" href="{{ page.previous.url | relative_url }}"><span>&laquo;&nbsp;{{ page.previous.title }}</span>
+      {%- if page.previous.image -%}
+        <img src="{{ '/assets/img/' |  append: page.previous.image | relative_url }}" alt="">
+      {%- endif -%}
+    </a>
+    {%- endif -%}
+    {%- if page.next.url -%}
+      <a class="next{% if page.next.image %} image{% endif %}" href="{{ page.next.url | relative_url }}"><span>{{ page.next.title }}&nbsp;&raquo;</span>
+      {%- if page.next.image -%}
+        <img src="{{ '/assets/img/' | append: page.next.image | relative_url }}" alt="">
+      {%- endif -%}
       </a>
-      <div class="inner-post content">
-        <div class="date-highlight">{% if page.date %}{{ page.date | date: '%d %b %Y' }}{% else %}&#x2756;{% endif %}</div>
-        {{ content }}
-        <br>
-        {% include share.html %}
-        {% include page-pagination.html %}
-      </div>
-    </div>
-    {% include scripts.html %}
-    {% include overlay.html %}
-</body>
-</html>
+    {%- endif -%}
+  </footer>
+</article>
+
+{%- if site.disqus.shortname -%}
+  {%- include disqus_comments.html -%}
+{%- endif -%}
